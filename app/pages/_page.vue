@@ -9,32 +9,32 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import { MetaInfo } from 'vue-meta';
+import { Component, Vue } from 'vue-property-decorator'
+import { MetaInfo } from 'vue-meta'
 
 @Component({
   // Called to know which transition to apply
   transition(to, from) {
     if (!from) {
-      return 'slide-left';
+      return 'slide-left'
     }
 
-    return 'slide-right';
+    return 'slide-right'
   },
 
   async asyncData({ params, payload }): Promise<{ page: Page }> {
     if (payload) {
-      return { page: payload };
+      return { page: payload }
     }
 
     try {
-      const page = require(`@/content/pages/${params.page}.json`);
+      const page = require(`@/content/pages/${params.page}.json`)
 
       return {
-        page,
-      };
+        page
+      }
     } catch (e) {
-      throw new Error('Not found');
+      throw new Error('Not found')
     }
   },
 
@@ -45,18 +45,18 @@ import { MetaInfo } from 'vue-meta';
         {
           hid: 'description',
           name: 'description',
-          content: this.page.seoDescription,
+          content: this.page.seoDescription
         },
         {
           hid: 'og:image',
           name: 'og:image',
-          content: this.page.seoMetaImage,
-        },
-      ],
-    };
-  },
+          content: this.page.seoMetaImage
+        }
+      ]
+    }
+  }
 })
 export default class PageTemplate extends Vue {
-  page!: Page;
+  page!: Page
 }
 </script>

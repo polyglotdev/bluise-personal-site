@@ -1,10 +1,10 @@
 {
   "title": "Home",
-  "titleTemplate": "| Bluise",
-  "welcomeText": "# Yo, I'm Bluise - A Nuxt.js & Netlify CMS boilerplate.\n\nAuthentic cred hoodie hashtag selfies. Raclette banjo cardigan cred. Kitsch XOXO lomo polaroid. Knausgaard put a bird on it four dollar toast leggings typewriter asymmetrical.",
+  "titleTemplate": "| Always Be Learning",
+  "welcomeText": "# Yo, I'm Dom - \n\nIf you want to link up, leave your email address in the form below.\nYou could have been anywhere in the world, but you are here with me, I appreciate that.",
   "logo": "/images/uploads/logo.svg",
   "icon": "/images/uploads/logo.png",
   "loadingColor": "#0b3765",
-  "seoDescription": "A quickstart for Nuxt & Netlify CMS",
+  "seoDescription": "",
   "seoMetaImage": ""
 }

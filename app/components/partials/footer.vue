@@ -1,7 +1,7 @@
 <template>
   <footer class="footer -mx-4 md:mx-0">
     <div class="container mx-auto pb-6 flex justify-center">
-      <a href="https://github.com/Gomah/bluise">
+      <a href="https://github.com/codefuldom">
         <svg
           baseProfile="tiny"
           height="32px"
@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator'
 
 @Component
 export default class Footer extends Vue {}

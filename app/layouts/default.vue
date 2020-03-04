@@ -14,15 +14,15 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import SiteHeader from '@/components/partials/header.vue';
-import SiteFooter from '@/components/partials/footer.vue';
+import { Component, Vue } from 'vue-property-decorator'
+import SiteHeader from '@/components/partials/header.vue'
+import SiteFooter from '@/components/partials/footer.vue'
 
 @Component({
   components: {
     SiteHeader,
-    SiteFooter,
-  },
+    SiteFooter
+  }
 })
 export default class DefaultLayout extends Vue {}
 </script>

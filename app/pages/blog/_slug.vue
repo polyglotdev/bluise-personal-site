@@ -11,23 +11,23 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import { MetaInfo } from 'vue-meta';
+import { Component, Vue } from 'vue-property-decorator'
+import { MetaInfo } from 'vue-meta'
 
 @Component({
   async asyncData({ params, payload }): Promise<{ post: Post }> {
     if (payload) {
-      return { post: payload };
+      return { post: payload }
     }
 
     try {
-      const post = require(`@/content/blog/${params.slug}.json`);
+      const post = require(`@/content/blog/${params.slug}.json`)
 
       return {
-        post,
-      };
+        post
+      }
     } catch (e) {
-      throw new Error('Not found');
+      throw new Error('Not found')
     }
   },
 
@@ -38,18 +38,18 @@ import { MetaInfo } from 'vue-meta';
         {
           hid: 'description',
           name: 'description',
-          content: this.post.seoDescription,
+          content: this.post.seoDescription
         },
         {
           hid: 'og:image',
           name: 'og:image',
-          content: this.post.seoMetaImage,
-        },
-      ],
-    };
-  },
+          content: this.post.seoMetaImage
+        }
+      ]
+    }
+  }
 })
 export default class BlogPost extends Vue {
-  post!: Post;
+  post!: Post
 }
 </script>

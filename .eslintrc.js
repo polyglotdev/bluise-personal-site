@@ -1,12 +1,12 @@
 module.exports = {
   root: true,
   parserOptions: {
-    parser: '@typescript-eslint/parser',
+    parser: '@typescript-eslint/parser'
   },
   env: {
     browser: true,
     jest: true,
-    node: true,
+    node: true
   },
   extends: [
     'airbnb-typescript/base',
@@ -14,19 +14,22 @@ module.exports = {
     'plugin:vue/strongly-recommended',
     'prettier',
     'prettier/vue',
-    'prettier/@typescript-eslint',
+    'prettier/@typescript-eslint'
   ],
   plugins: ['@typescript-eslint', 'prettier', 'vue'],
   // add your custom rules here
   rules: {
-    'prettier/prettier': ['error', { singleQuote: true, trailingComma: 'es5', printWidth: 100 }],
+    'prettier/prettier': [
+      'error',
+      { singleQuote: true, trailingComma: 'es5', printWidth: 100 }
+    ],
     'import/extensions': [
       'error',
       'always',
       {
         js: 'never',
-        ts: 'never',
-      },
+        ts: 'never'
+      }
     ],
     'no-console': 0,
     '@typescript-eslint/no-explicit-any': 0,
@@ -36,7 +39,7 @@ module.exports = {
     'no-underscore-dangle': 0,
     'class-methods-use-this': 0,
     'vue/max-attributes-per-line': 'off',
-    'vue/component-name-in-template-casing': [1, 'kebab-case'],
+    'vue/component-name-in-template-casing': [1, 'kebab-case']
   },
   settings: {
     'import/core-modules': [
@@ -48,7 +51,7 @@ module.exports = {
       'vuex',
       'vue-meta',
       'vue-server-renderer',
-      'vue-router',
+      'vue-router'
     ],
     'import/resolver': {
       webpack: {
@@ -57,11 +60,11 @@ module.exports = {
             extensions: ['.js', '.json', '.ts', '.vue'],
             alias: {
               '~': __dirname + '/app',
-              '@': __dirname + '/app',
-            },
-          },
-        },
-      },
-    },
-  },
-};
+              '@': __dirname + '/app'
+            }
+          }
+        }
+      }
+    }
+  }
+}

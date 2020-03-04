@@ -1,7 +1,7 @@
-import { Configuration } from '@nuxt/types';
-import fg from 'fast-glob';
-import settings from './app/content/settings/general.json';
-import manifest from './app/content/settings/manifest.json';
+import { Configuration } from '@nuxt/types'
+import fg from 'fast-glob'
+import settings from './app/content/settings/general.json'
+import manifest from './app/content/settings/manifest.json'
 
 const nuxtConfig: Configuration = {
   /*
@@ -17,26 +17,26 @@ const nuxtConfig: Configuration = {
       {
         hid: 'og:title',
         property: 'og:title',
-        content: `${settings.title} ${settings.titleTemplate}`,
+        content: `${settings.title} ${settings.titleTemplate}`
       },
       {
         hid: 'og:description',
         property: 'og:description',
-        content: settings.seoDescription,
+        content: settings.seoDescription
       },
       {
         hid: 'og:image',
         property: 'og:image',
-        content: settings.seoMetaImage,
-      },
+        content: settings.seoMetaImage
+      }
     ],
     script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js', defer: true }],
     link: [
       {
         rel: 'preconnect',
-        href: 'https://d33wubrfki0l68.cloudfront.net',
-      },
-    ],
+        href: 'https://d33wubrfki0l68.cloudfront.net'
+      }
+    ]
   },
 
   srcDir: 'app/',
@@ -52,18 +52,18 @@ const nuxtConfig: Configuration = {
   css: ['@/assets/css/main.scss'],
 
   styleResources: {
-    scss: ['~assets/css/_variables.scss', '~assets/css/_mixins.scss'],
+    scss: ['~assets/css/_variables.scss', '~assets/css/_mixins.scss']
   },
 
   generate: {
     subFolders: false,
 
     routes: [
-      ...fg.sync(['./app/content/blog/**.json', './app/content/pages/**.json']).map(url => ({
+      ...fg.sync(['./app/content/blog/**.json', './app/content/pages/**.json']).map((url) => ({
         route: url.replace(/^.\/app\/content(\/pages)?|.json$/gi, ''),
-        payload: require(url),
-      })),
-    ],
+        payload: require(url)
+      }))
+    ]
   },
 
   /*
@@ -77,7 +77,7 @@ const nuxtConfig: Configuration = {
   modules: ['@nuxtjs/pwa', '@nuxtjs/style-resources', '@nuxtjs/markdownit'],
 
   purgeCSS: {
-    whitelist: [/.*-(enter|enter-active|enter-to|leave|leave-active|leave-to)/],
+    whitelist: [/.*-(enter|enter-active|enter-to|leave|leave-active|leave-to)/]
   },
 
   markdownit: {
@@ -92,22 +92,22 @@ const nuxtConfig: Configuration = {
     html: true,
 
     // Enable some language-neutral replacement + quotes beautification
-    typographer: true,
+    typographer: true
   },
 
   workbox: {
     runtimeCaching: [
       {
         urlPattern: 'https://d33wubrfki0l68.cloudfront.net/.*',
-        handler: 'cacheFirst',
-      },
-    ],
+        handler: 'cacheFirst'
+      }
+    ]
   },
 
   pwa: {
     icon: {
-      iconSrc: `app/static${settings.icon}`,
-    },
+      iconSrc: `app/static${settings.icon}`
+    }
   },
 
   manifest: {
@@ -116,19 +116,19 @@ const nuxtConfig: Configuration = {
     description: manifest.description,
     theme_color: manifest.themeColor,
     background_color: manifest.backgroundColor,
-    lang: manifest.lang || 'en',
+    lang: manifest.lang || 'en'
   },
 
   meta: {
     ogTitle: false,
-    ogDescription: false,
+    ogDescription: false
   },
 
   // Serve both, the modern bundle <script type="module"> and the legacy bundle <script nomodule> scripts,
   // also provide a <link rel="modulepreload"> for the modern bundle.
   // Every browser that understands the module type will load the modern bundle while older browsers fall back to the legacy (transpiled) one.
   ...(process.env.NODE_ENV === 'production' && {
-    modern: 'client',
+    modern: 'client'
   }),
 
   buildModules: [
@@ -136,11 +136,11 @@ const nuxtConfig: Configuration = {
       '@nuxt/typescript-build',
       {
         typeCheck: false,
-        ignoreNotFoundWarnings: true,
-      },
+        ignoreNotFoundWarnings: true
+      }
     ],
     '@nuxtjs/eslint-module',
-    '@nuxtjs/tailwindcss',
+    '@nuxtjs/tailwindcss'
   ],
 
   build: {
@@ -157,8 +157,8 @@ const nuxtConfig: Configuration = {
         removeEmptyAttributes: true,
         removeRedundantAttributes: true,
         trimCustomFragments: true,
-        useShortDoctype: true,
-      },
+        useShortDoctype: true
+      }
     },
 
     publicPath: process.env.npm_lifecycle_event === 'generate' ? '/pwa/' : '/_nuxt/',
@@ -167,16 +167,16 @@ const nuxtConfig: Configuration = {
 
     optimization: {
       splitChunks: {
-        name: true,
+        name: true
       },
-      runtimeChunk: true,
+      runtimeChunk: true
     },
 
     // Split chunks
     splitChunks: {
       layouts: true,
       pages: true,
-      commons: true,
+      commons: true
     },
 
     parallel: process.env.NODE_ENV !== 'production',
@@ -185,9 +185,9 @@ const nuxtConfig: Configuration = {
 
     // Extend webpack config
     extend(config, { isDev }): void {
-      config.devtool = isDev ? 'eval-source-map' : false;
-    },
-  },
-};
+      config.devtool = isDev ? 'eval-source-map' : false
+    }
+  }
+}
 
-export default nuxtConfig;
+export default nuxtConfig
